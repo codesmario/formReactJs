@@ -1,0 +1,13 @@
+@import '../components/ui/Home/Home.scss';
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    li {
+        list-style: none;
+        a{
+            display: block;
+            padding: 20px;
+        }
+    }
+}
