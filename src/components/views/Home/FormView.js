@@ -1,18 +1,33 @@
 import { Component, useState } from "react";
 import useForm from '../../../hooks/Form/useForm'
+import Select from 'react-select'
+
+
 
 export const FormView = () => {
     
         const {validLengthEmail, validLength, validCity, handle_validCity, onSubmitForm} = useForm(false);
-    
+        const options = [
+            {value:'1', label:'One'},
+            {value:'2', label:'Two'},
+        ]
         return (
 
             <form className="row g-3" autoComplete='off'>
-                <div className="col-md-6">
-                    <label for="inputEmail4" className="form-label">Email</label>
-                    <input type="email" className="form-control" id="inputEmail4" onChange={validLength} />
-                    {(validLengthEmail? <span>campo aceptado</span>:<span>Campo no aceptado</span> )}
+                <div className="row">
+                    <h3>Datos Generales</h3>
                 </div>
+
+                <div className="row">
+                    <div className="col-md-6">
+                        <label for="inputEmail4" className="form-label">Nombre</label>
+                        <input type="email" className="form-control" id="inputEmail4" onChange={validLength} />
+                        {(validLengthEmail? <span>campo aceptado</span>:<span>Campo no aceptado</span> )}
+                    </div>
+                </div>
+
+
+
                 <div className="col-md-6">
                     <label for="inputPassword4" className="form-label">Password</label>
                     <input type="password" className="form-control" id="inputPassword4" />
@@ -32,10 +47,7 @@ export const FormView = () => {
                 </div>
                 <div className="col-md-4">
                     <label for="inputState" className="form-label">State</label>
-                    <select id="inputState" className="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                    </select>
+                    <Select name="inputState" options={options} />
                 </div>
                 <div className="col-md-2">
                     <label for="inputZip" className="form-label">Zip</label>

@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 const useForm = () => {
     const [validLengthEmail, setvalidLenthEmail]    = useState(false);
     const [validCity, setValidCity]                 = useState(false);
-
     // validLength
     const validLength = (val) => {
         let valor = val.target.value
@@ -25,7 +24,7 @@ const useForm = () => {
             setValidCity(false)
         }
     }
-    //  handle_submitInfo
+    //  onSubmitForm
     const onSubmitForm = (e) => {
         e.preventDefault();
 
