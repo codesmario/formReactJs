@@ -1,70 +1,86 @@
 import { Component, useState } from "react";
 import useForm from '../../../hooks/Form/useForm'
 import Select from 'react-select'
+import { SubTitle } from "../../common/SubTitle";
 
 
 
 export const FormView = () => {
     
-        const {validLengthEmail, validLength, validCity, handle_validCity, onSubmitForm} = useForm(false);
+        const {validBoolFName, handleValidFName,  validBoolFLName, handleValidFLName, validBoolBDate, handelvalidBoolBDate, handleValid_BoolEmail, setBool_BEmail, handleValid_BoolPhone, setBool_BPhone, onSubmitForm} = useForm(false);
         const options = [
             {value:'1', label:'One'},
             {value:'2', label:'Two'},
         ]
         return (
 
-            <form className="row g-3" autoComplete='off'>
-                <div className="row">
-                    <h3>Datos Generales</h3>
-                </div>
+            <div className="row">
+                
+                <form className="row" autoComplete='off'>
+                    <SubTitle title="Datos Generales" />
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="col-md-12">
+                                <label for="fname" className="form-label">Nombre <span className="text-danger">(*)</span>:</label>
+                                <input type="text" className="form-control" id="fname" onChange={handleValidFName} />
+                            </div>
+                            <div className="col-md-12">
+                                <label for="flname" className="form-label">Primer Apellido <span className="text-danger">(*)</span>:</label>
+                                <input type="text" className="form-control" id="flname" onChange={handleValidFLName} />
+                            </div>
+                            <div className="col-md-12">
+                                <label for="slname" className="form-label">Segundo Apellido</label>
+                                <input type="text" className="form-control" id="slname" />
+                            </div>
+                        </div>
 
-                <div className="row">
-                    <div className="col-md-6">
-                        <label for="inputEmail4" className="form-label">Nombre</label>
-                        <input type="email" className="form-control" id="inputEmail4" onChange={validLength} />
-                        {(validLengthEmail? <span>campo aceptado</span>:<span>Campo no aceptado</span> )}
+                        <div className="col-md-6">
+                            <div className="col-md-12">
+                                <label for="date-birthday" className="form-label">Fecha de naciemiento <span className="text-danger">(*)</span>:</label>
+                                <input type="text" className="form-control" id="date-birthday" onChange={handelvalidBoolBDate} />
+                            </div>
+                            <div className="col-md-12">
+                                <label for="emailUser" className="form-label">Correo electrónico <span className="text-danger">(*)</span>:</label>
+                                <input type="email" className="form-control" id="emailUser" required onChange={handleValid_BoolEmail}/>
+                            </div>
+                            <div className="col-md-12">
+                                <label for="phone" className="form-label">Teléfono <span className="text-danger">(*)</span>:</label>
+                                <input type="text" className="form-control" id="phone" onChange={handleValid_BoolPhone}/>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
 
-
-                <div className="col-md-6">
-                    <label for="inputPassword4" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="inputPassword4" />
-                </div>
-                <div className="col-12">
-                    <label for="inputAddress" className="form-label">Address</label>
-                    <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
-                </div>
-                <div className="col-12">
-                    <label for="inputAddress2" className="form-label">Address 2</label>
-                    <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
-                </div>
-                <div className="col-md-6">
-                    <label for="inputCity" className="form-label">City</label>
-                    <input type="text" className="form-control" id="inputCity" onChange={handle_validCity} />
-                    {(validCity? <span>campo aceptado</span>:<span>Campo no aceptado</span> )}
-                </div>
-                <div className="col-md-4">
-                    <label for="inputState" className="form-label">State</label>
-                    <Select name="inputState" options={options} />
-                </div>
-                <div className="col-md-2">
-                    <label for="inputZip" className="form-label">Zip</label>
-                    <input type="text" className="form-control" id="inputZip" />
-                </div>
-                <div className="col-12">
-                    <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="gridCheck" />
-                    <label className="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
+                    <SubTitle title="Datos de interés" />
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="col-12">
+                                <label for="optCarreraOne" className="form-label">Carrera 1ra opción</label>
+                                <Select className="" id="optCarreraOne" options={options} />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="col-12">
+                                <label for="optCarreraTwo" className="form-label">Carrera 2da opción</label>
+                                <Select className="" id="optCarreraTwo" options={options} />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="col-12">
-                    <button  className="btn btn-primary" onClick={onSubmitForm}>Sign in</button>
-                </div>
-            </form>
+                    
+                    <SubTitle title="Institución de procedencia" />
+                    <div className="row">
+                        <div className="col-12">
+                            <label for="optSchool" className="form-label">Colegio o escuela de procedencia</label>
+                            <Select className="" id="optSchool" options={options} />
+                        </div>
+                    </div>
+
+                    <div className="col-12 g-3">
+                        <button  className="btn btn-primary" onClick={onSubmitForm}>Registrar</button>
+                    </div>
+                </form>
+
+            </div>
         );
  
 }

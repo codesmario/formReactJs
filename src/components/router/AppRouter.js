@@ -25,11 +25,13 @@ export const AppRouter = () => {
                         </nav>
                     </div>
                     <div className="row">
-                        <Switch>
-                            <Route exact path="/" component={HomePage} />
-                            <Route path="/About" component={AboutPage} />
-                            <Route path="/Contact" component={ContactPage} />
-                        </Switch>
+                        
+                            <Switch>
+                                <Route exact path="/" component={HomePage} />
+                                <Route path="/About" component={AboutPage} />
+                                <Route path="/Contact" component={ContactPage} />
+                            </Switch>
+                        
                     </div>
                 </div>
             </div>
