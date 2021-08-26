@@ -1,19 +1,23 @@
-import { Component, useState } from "react";
 import useForm from '../../../hooks/Form/useForm'
 import Select from 'react-select'
 import { SubTitle } from "../../common/SubTitle";
-
+import { useEffect } from 'react';
 
 
 export const FormView = () => {
-    
-        const {validBoolFName, handleValidFName,  validBoolFLName, handleValidFLName, validBoolBDate, handelvalidBoolBDate, handleValid_BoolEmail, setBool_BEmail, handleValid_BoolPhone, setBool_BPhone, onSubmitForm} = useForm(false);
+
+        const {validBoolFName, handleValidFName,  validBoolFLName, handleValidFLName, validBoolBDate, handelvalidBoolBDate, 
+                handleValid_BoolEmail, setBool_BEmail, handleValid_BoolPhone, setBool_BPhone, fun_getCarrer, carreras, onSubmitForm} = useForm(false);
         const options = [
             {value:'1', label:'One'},
             {value:'2', label:'Two'},
         ]
-        return (
 
+        useEffect(() => {
+            fun_getCarrer()
+        })
+
+        return (
             <div className="row">
                 
                 <form className="row" autoComplete='off'>
@@ -56,13 +60,13 @@ export const FormView = () => {
                         <div className="col-md-6">
                             <div className="col-12">
                                 <label for="optCarreraOne" className="form-label">Carrera 1ra opción</label>
-                                <Select className="" id="optCarreraOne" options={options} />
+                                <Select className="" id="optCarreraOne" options={carreras} />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="col-12">
                                 <label for="optCarreraTwo" className="form-label">Carrera 2da opción</label>
-                                <Select className="" id="optCarreraTwo" options={options} />
+                                <Select className="" id="optCarreraTwo" options={carreras} />
                             </div>
                         </div>
                     </div>
@@ -71,7 +75,7 @@ export const FormView = () => {
                     <div className="row">
                         <div className="col-12">
                             <label for="optSchool" className="form-label">Colegio o escuela de procedencia</label>
-                            <Select className="" id="optSchool" options={options} />
+                            <Select className="" id="optSchool" options={carreras} />
                         </div>
                     </div>
 
