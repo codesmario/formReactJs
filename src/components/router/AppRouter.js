@@ -18,18 +18,18 @@ export const AppRouter = () => {
                     <div className="row">
                         <nav>
                             <ul>
-                                <li> <Link to="/" >Home</Link> </li>
-                                <li> <Link to="/About" >About</Link> </li>
-                                <li> <Link to="/Contact" >Contact</Link> </li>
+                                <li> <Link to="/openhouse_v2/" >Home</Link> </li>
+                                <li> <Link to="/openhouse_v2/About" >About</Link> </li>
+                                <li> <Link to="/openhouse_v2/Contact" >Contact</Link> </li>
                             </ul>
                         </nav>
                     </div>
                     <div className="row">
                         
                             <Switch>
-                                <Route exact path="/" component={HomePage} />
-                                <Route path="/About" component={AboutPage} />
-                                <Route path="/Contact" component={ContactPage} />
+                                <Route exact path="/openhouse_v2/" component={HomePage} />
+                                <Route path="/openhouse_v2/About" component={AboutPage} />
+                                <Route path="/openhouse_v2/Contact" component={ContactPage} />
                             </Switch>
                         
                     </div>
