@@ -76,10 +76,12 @@ export const FormView = () => {
                         </div>
                     </div>
 
-                    <div className="col-12 g-3">
-                        <input type="submit" value="Submit" />
-                        
+                    <div className="row">
+                        <div className="col-12 g-3 text-end">
+                            <input type="submit" value="Registrarse" className="btn btn-primary"/>
+                        </div>
                     </div>
+
                 </form>
 
             </div>

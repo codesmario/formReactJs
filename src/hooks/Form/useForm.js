@@ -117,9 +117,12 @@ const useForm = () => {
             // ----
         } else {
 
-            axios.post('http://localhost/foncae/student/save', datas).then(function (response) {                
-                console.log("Datos enviados: "+ (JSON.stringify(datas)));                
-            }).catch(function (error) {
+            axios.post(
+                'http://localhost/crm/webservices/revice_info', 
+                datas,
+                ).then(function (response) {                
+                console.log("Datos enviados: "+ (JSON.stringify(response)));                
+            },{headers: {"Access-Control-Allow-Origin": "*"}}).catch(function (error) {
                 console.log("     ...     "+error);
             });
 
